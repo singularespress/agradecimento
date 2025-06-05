@@ -1,98 +1,101 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valeu! Seu Ebook Está Aqui 🎉</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrigado pela Compra – CÓDIGO BRUTAL</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
     body {
-      background-color: #1e1e1e;
-      color: #fff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin: 0;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
       text-align: center;
+      padding: 40px;
     }
-
     h1 {
-      font-size: 2.8rem;
-      color: #ffc107;
-      margin-bottom: 12px;
-      text-shadow: 0 0 8px #ffb300;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #e50914;
     }
-
     p {
       font-size: 1.2rem;
-      margin-bottom: 30px;
-      max-width: 400px;
-      line-height: 1.5;
+      margin-bottom: 20px;
+      color: #c0c0c0;
     }
-
-    .button-download {
-      background: linear-gradient(90deg, #ff4500 60%, #ffc107 100%);
-      padding: 18px 36px;
-      font-size: 1.3rem;
-      color: #1e1e1e;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 5px 20px rgba(255, 69, 0, 0.4);
-      transition: background 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .button-download:hover {
-      background: linear-gradient(90deg, #e63946 60%, #ffb300 100%);
-      box-shadow: 0 8px 28px rgba(230, 57, 70, 0.6);
-    }
-
-    .fun-text {
-      margin-top: 40px;
+    input[type="email"] {
+      padding: 10px;
       font-size: 1rem;
-      color: #bbb;
-      max-width: 320px;
-      font-style: italic;
+      width: 300px;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 10px;
     }
-
+    button {
+      background-color: #e50914;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff1f3d;
+    }
+    .hidden {
+      display: none;
+    }
     footer {
-      margin-top: auto;
-      padding: 20px 0 10px 0;
+      margin-top: 50px;
       font-size: 0.9rem;
-      color: #666;
+      color: #888;
     }
-
-    /* Responsivo */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      .button-download {
-        font-size: 1.1rem;
-        padding: 14px 28px;
-      }
+    .download-section {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <h1>Valeu! Seu Ebook Está Aqui 🎉</h1>
-  <p>Agora é com você! Clique no botão abaixo para baixar seu guia e começar a desfuder sua vida financeira em 30 dias. Prepare-se para virar o jogo!</p>
-  <a href="https://drive.google.com/uc?export=download&id=1sp0_43nBYQ3rKXCrmJo6OkNjDYB4I09H" target="_blank" rel="noopener" class="button-download" download>
-    Baixar Meu Ebook Agora
-  </a>
-  <p class="fun-text">Dica: Aproveite o bônus do áudio para turbinar sua mente e deixar as desculpas pra trás! 🚀</p>
+
+  <h1>🔥 CÓDIGO BRUTAL – ACESSO RESTRITO</h1>
+  <p>Informe seu e-mail para liberar o download do seu material.</p>
+
+  <form id="emailForm">
+    <input type="email" id="emailInput" placeholder="Digite seu melhor e-mail" required>
+    <br>
+    <button type="submit">Liberar Acesso</button>
+  </form>
+
+  <div class="download-section hidden" id="downloadSection">
+    <p>✅ E-mail confirmado. Agora baixe seu material:</p>
+    <a class="button" href="https://drive.google.com/file/d/1OCXF64m3zWXvr7lA60wdIX3pjAiaeyEm/view?usp=sharing" target="_blank">📘 Baixar Código Brutal (PDF)</a>
+  </div>
+
+  <p style="margin-top: 30px;">Suporte e dúvidas: <strong>singularispress@gmail.com</strong></p>
+
   <footer>
-    <p>Singularis Press | Todos os direitos reservados.</p>
+    Singularis Press – Todos os direitos reservados. <br>
+    Esta página é exclusiva para compradores do produto CÓDIGO BRUTAL.
   </footer>
+
+  <script>
+    const form = document.getElementById('emailForm');
+    const downloadSection = document.getElementById('downloadSection');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      
+      // Simulação de envio de email (offline) – aqui você pode integrar com API externa se desejar.
+      if (email && email.includes("@")) {
+        form.classList.add('hidden');
+        downloadSection.classList.remove('hidden');
+      } else {
+        alert("Por favor, insira um e-mail válido.");
+      }
+    });
+  </script>
+
 </body>
 </html>
